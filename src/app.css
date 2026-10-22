@@ -26,6 +26,9 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 }
+main[id] {
+	scroll-margin-top: 80px;
+}
 ol, ul {
 	list-style: none;
 }

@@ -1,10 +1,18 @@
 export const theme = {
     colors: {
-        yellow: "#FED500",
-        green: "#00E88F",
+        buttonColor: "#FFFFFF",
+        buttonBackground: "#773e93",
+        cardBackground: "#F5F5F5",
+        gray: "#E0E0E0",
         white: "#FFFFFF",
-        black: "#333333",
-        week_black: "#21272F",
-        purple: "#B466FA"
+        pageBackground: "#121d40",
+        purple: "#773e93",
+        yellow: "#FFD700",
+    },
+    prices:{
+        viaLactea: 280,
+        galaxia: 560,
+        nebulosa: 840,
+        cosmos: 1120
     }
 }

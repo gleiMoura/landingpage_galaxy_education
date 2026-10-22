@@ -17,11 +17,11 @@ export const Footer: FC = () => {
 const Content = styled.div<{ mode: boolean }>`
     width: 100%;
     height: 30px;
-    color: ${(props) => props.mode ? 'white' : 'black'};;
-    font-family: "Roboto";
+    color: ${theme.colors.white};
+    font-family: "Raleway";
     font-size: 0.8rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: ${(props) => props.mode ? '#21272F' : theme.colors.white};
+    background-color: ${theme.colors.pageBackground};
 `

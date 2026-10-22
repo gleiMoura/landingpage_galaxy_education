@@ -1,8 +1,5 @@
 import { FC, useContext } from "react"
-import { FaArrowCircleRight } from "react-icons/fa";
-import { FaPerson } from "react-icons/fa6";
-import { MdLiveTv } from "react-icons/md";
-import { MdLibraryBooks } from "react-icons/md";
+import { IoBookOutline, IoLaptopOutline, IoPeopleOutline } from "react-icons/io5";
 import { ModeContext } from "../contexts/ModeContext";
 import { theme } from "../theme";
 import styled from "styled-components";
@@ -11,87 +8,56 @@ import Card from "../components/Card";
 import { Button } from "../components/Button";
 
 export const Presentation: FC = () => {
-    const modeContext = useContext(ModeContext);
-    const phoneNumber = "5521990230279";
+    const phoneNumber = "5521984866633";
     const message = "Olá! Gostaria de saber mais as aulas";
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
-    if (!ModeContext) {
-        throw new Error('ModeSwitcher deve ser usado dentro de um ModeProvider');
-    }
-
-    const { mode, setMode } = modeContext;
-
-    const changeMode = () => {
-        setMode(!mode)
-    };
     return (
-        <Main mode={mode} id="presentation">
-            <Header changeMode={changeMode} mode={mode} />
+        <Main id="presentation">
+            <Header />
             <div className="cards">
                 <Card
-                    width="90%"
+                    width="45%"
                     maxWidth="500px"
-                    height="400px"
-                    color="white"
-                    component={
-                        <Component mode={mode}>
-                            <div className="info_box">
-                                <h1>
-                                    Quem sou eu?
-                                </h1>
-                                <h2>
-                                    Professor de física, matemática e química dedicado a fazer meus alunos atingirem potencial máximo nos estudos.
-                                </h2>
-                                <div className="curiousity">
-                                    <FaArrowCircleRight className="icon" />
-                                    <p>Residente da cidade maravilhosa</p>
-                                </div>
-                                <div className="curiousity">
-                                    <FaArrowCircleRight className="icon" />
-                                    <p>Apaixonado por corrida de rua</p>
-                                </div>
-                                <div className="curiousity">
-                                    <FaArrowCircleRight className="icon" />
-                                    <p>Pai de 2 gatos</p>
-                                </div>
-                            </div>
-                            <img src="/images/me.png" alt="Foto do professor" className="photo" />
-                        </Component>
-                    }
+                    minHeight="300px"
+                    height="204px"
+                    color="#e7e3f2"
+                    border="transparent"
+                    boxShadow="none"
+                    padding="20px"
+                    title="O que é a Galaxy?"
+                    text="A Galaxy é uma empresa de aulas particulares focada em ajudar seu filho em exatas.
+                                    Aqui você irá encontrar mentorias em Matemática, física, química e programação.
+                              
+                                    Na Galaxy buscamos excelência acadêmica e por isso possuímos uma metodologia única
+                                    que reúne o melhor da tecnologia para auxiliar seu filho a melhorar os resultados no
+                                    ambiente acadêmico, visando sempre seus objetivos."
 
                 />
                 <Card
-                    width="90%"
+                    width="45%"
                     maxWidth="500px"
-                    height="400px"
-                    color="white"
+                    height="204px"
+                    color="#e7e3f2"
+                    border="transparent"
+                    boxShadow="none"
+                    padding="20px"
+                    minHeight="300px"
+                    title="Diferenciais"
                     component={
-                        <Component mode={mode}>
+                        <Component>
                             <div className="diferential_box">
-                                <h1>
-                                    Diferencial das minhas mentorias
-                                </h1>
                                 <div className="diferential">
-                                    <FaPerson className="diferential_icon" />
-                                    <section>
-                                        <h2>FOCO TOTAL NO ALUNO</h2>
-                                        <p>Por isso as aulas são individualizadas.</p>
-                                    </section>
+                                    <IoPeopleOutline className="diferential_icon" />
+                                    <p>Foco total no aluno</p>
                                 </div>
                                 <div className="diferential">
-                                    <MdLiveTv className="diferential_icon" />
-                                    <section>
-                                        <h2>AS AULAS SÃO AO VIVO</h2>
-                                        <p>Chega de aulas estáticas! Aqui você pode tirar dúvidas em tempo real.</p>
-                                    </section>
+                                    <IoLaptopOutline className="diferential_icon" />
+                                    <p>Aulas ao vivo</p>
                                 </div>
                                 <div className="diferential">
-                                    <MdLibraryBooks className="diferential_icon" />
-                                    <section>
-                                        <h2>LISTAS DE EXERCÍCIO</h2>
-                                        <p>São elaboradas de acordo com seu objetivo e conhecimento na disciplina.</p>
-                                    </section>
+                                    <IoBookOutline className="diferential_icon" />
+                                    <p>Listas de exercício</p>
                                 </div>
                             </div>
                         </Component>
@@ -103,119 +69,127 @@ export const Presentation: FC = () => {
     )
 };
 
-const Main = styled.main<{ mode: boolean }>`
+const Main = styled.main`
     width: 100%;
-    height: auto;
+    height: 100vh;
+    padding-top: 80px;
+    box-sizing: border-box;
     position: relative;
+    isolation: isolate;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: ${(props) => props.mode ? theme.colors.week_black : theme.colors.white};
+    background-color: ${theme.colors.pageBackground};
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-image: url("/images/fundo_site_um.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.44;
+    }
 
     .cards {
         width: 100%;
-        padding-top: 100px;
+        padding: 30px 5% 20px;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         align-items: center;
+        gap: 24px;
         box-sizing: border-box;
+
+        > section {
+            border-radius: 20px;
+        }
 
         @media(max-width: 600px) {
             flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+
+            > section {
+                width: calc(100% - 20px) !important;
+                height: auto !important;
+                min-height: 204px;
+            }
         }
    }
 `;
 
-const Component = styled.div<{ mode: boolean }>`
-    width: 100%;
-    height: 100%;
+const Component = styled.div`
+    width: 200px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
 
     .info_box{
-        width: 310px;
-        height: 350px;
-        padding: 10px;
-        box-sizing: border-box;
+        width: 100%;
     };
 
     h1{
-        font-size: 1.5rem;
-        font-weight: 500;
+        font-size: 1.4rem;
+        font-weight: 700;
         text-align: center;
-        margin-bottom: 20px;
-    }
-
-    h2{
-        font-size: 1.2rem;
-        font-weight: 400;
-        text-align: center;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
     p{
-        font-size: 1rem;
-        text-align: center;
+        font-size: 0.78rem;
+        line-height: 1.3;
+        text-align: justify;
         font-weight: 400;
     }
 
-    .curiousity{
+    .diferential_box{
+        width: 100%;
         display: flex;
-        justify-content: start;
-        align-items: center;
-        gap: 10px;
-        margin-top: 20px;
-    }
-
-    .photo{
-        width: 110px;
-        position: absolute;
-        bottom: 0;
-        right: 10px;
-
-    }
-
-    .icon{
-        font-size: 25px;
-        color: ${theme.colors.yellow}
+        flex-direction: column;
+        justify-content: center;
     }
 
     .diferential_icon{
-        font-size: 35px;
-        margin-left: 0px;
-        color: ${theme.colors.yellow}
+        width: 48px;
+        height: 34px;
+        flex: 0 0 48px;
+        font-size: 32px;
+        color: ${theme.colors.pageBackground};
     }
 
     .diferential{
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
+        gap: 14px;
+        margin: 4px 0;
     }
 
-    section{
-        width: 250px;
-        height: 60px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        box-sizing: border-box;
-        margin-bottom: 20px;
-        padding: 20px;
+    .diferential p{
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-align: left;
     }
 
     @media(max-width: 600px){
+        .info_box {
+            width: 100%;
+        }
+
         h1{
             font-size: 1.2rem;
-        };
-        h2{
-            font-size: 1rem;
-        };
-        p{
-            font-size: 0.8rem;
         }
-        
+
+        p {
+            font-size: 0.72rem;
+        }
+
+        .diferential p {
+            font-size: 0.85rem;
+        }
     }
 `;

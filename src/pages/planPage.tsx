@@ -1,245 +1,192 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import styled from "styled-components";
 import Card from "../components/Card";
 import Title from "../components/Title";
-import { ModeContext } from "../contexts/ModeContext";
 import { theme } from "../theme";
-import { CgArrowLongRightC } from "react-icons/cg";
 import { Button } from "../components/Button";
+import { IoArrowForwardCircleSharp } from "react-icons/io5";
+
 
 
 export const Plans: FC = () => {
-    const modeContext = useContext(ModeContext);
-
-    const { mode } = modeContext;
-
     return (
-        <Main mode={mode} id="plans">
-            <Title title="Planos disponíveis" />
+        <Main id="plans">
+            <Title title="Planos disponíveis" color={theme.colors.white} />
             <Cards>
-                <Card color={mode ? "gray" : "white"} margin="80px 0 0 0" toggleSides maxWidth="600px" height="170px" padding="0px" component={
-                    <Content mode={mode}>
-                        <div className="price_plan">
-                            <div className="bimestral">
-                                <p className="category">PLANO TRIMESTRAL</p>
-                                <p className="value">R$ 240,00 <span>mensal</span></p>
-                            </div>
-                            <div className="trimestral">
-                                <p className="category">PLANO SEMESTRAL</p>
-                                <p className="value">R$ 200,00 <span>mensal</span></p>
-                            </div>
+                <Card
+                    color={theme.colors.cardBackground}
+                    height="auto"
+                    title="VIA LÁCTEA"
+                    text="Ideal para quem deseja aprimorar seus estudos, contando com um acompanhamento leve e focado para fortalecer sua autonomia."
+                    component={
+                        <div className="diferential">
+                            <IoArrowForwardCircleSharp className="diferential_icon" />
+                            <p>1 aula por semana via meet</p>
                         </div>
-                        <div className="plan_info trilha">
-                            <h1 className="name">
-                                TRILHA
-                            </h1>
-                            <div className="stars">
-                                <CgArrowLongRightC className="icon" />
-                                <CgArrowLongRightC className="icon" />
-                                <CgArrowLongRightC className="icon" />
-                                <CgArrowLongRightC className="icon" />
-                            </div>
-                            <p className="text">
-                                * 1 aula por semana via meet
-                            </p>
-                            <p className="text">
-                                * 1 lista de exercício por semana
-                            </p>
-                            <p className="text">
-                                * Acesso ao whatsapp e instagram para tirar dúvidas frequentes.
-                            </p>
+                    }
+                    buttonText="Saiba mais"
+                    modalContent={
+                        <div>
+                            <br />
+                            <ul>
+                                <li>Preço: R$ {theme.prices.viaLactea.toFixed(2)}</li>
+                                <li>Acesso ao material de apoio</li>
+                                <li>Uma aula por semana de 50 minutos síncrona</li>
+                            </ul>
                         </div>
-                    </Content>
-                } />
-                <Card color={mode ? "gray" : "white"} toggleSides height="170px" maxWidth="600px" padding="0px" component={
-                    <Content mode={mode}>
-                        <div className="price_plan">
-                            <div className="bimestral">
-                                <p className="category">PLANO TRIMESTRAL</p>
-                                <p className="value">R$ 480,00 <span>mensal</span></p>
-                            </div>
-                            <div className="trimestral">
-                                <p className="category">PLANO SEMESTRAL</p>
-                                <p className="value">R$ 400,00 <span>mensal</span></p>
-                            </div>
+                    }
+                />
+                <Card
+                    color={theme.colors.cardBackground}
+                    height="auto"
+                    title="VIA LÁCTEA"
+                    text="Ideal para quem deseja aprimorar seus estudos, contando com um acompanhamento leve e focado para fortalecer sua autonomia."
+                    component={
+                        <div className="diferential">
+                            <IoArrowForwardCircleSharp className="diferential_icon" />
+                            <p>1 aula por semana via meet</p>
                         </div>
-                        <div className="plan_info jornada">
-                            <h1 className="name">
-                                JORNADA
-                            </h1>
-                            <div className="stars">
-                                <CgArrowLongRightC className="icon" />
-                                <CgArrowLongRightC className="icon" />
-                                <CgArrowLongRightC className="icon" />
-                                <CgArrowLongRightC className="icon" />
-                                <CgArrowLongRightC className="icon" />
-                                <CgArrowLongRightC className="icon" />
-                            </div>
-                            <p className="text">
-                                * 2 aulas por semana via meet
-                            </p>
-                            <p className="text">
-                                * 2 listas de exercício por semana
-                            </p>
-                            <p className="text">
-                                * Acesso ao whatsapp e instagram para tirar dúvidas frequentes.
-                            </p>
+                    }
+                    buttonText="Saiba mais"
+                    modalContent={
+                        <div>
+                            <br />
+                            <ul>
+                                <li>Preço: R$ {theme.prices.viaLactea.toFixed(2)}</li>
+                                <li>Acesso ao material de apoio</li>
+                                <li>Uma aula por semana de 50 minutos síncrona</li>
+                            </ul>
                         </div>
-                    </Content>
-                } />
-                <Card color={mode ? "gray" : "white"} height="170px" maxWidth="600px" padding="0px" component={
-                    <Content mode={mode}>
-                        <div className="price_plan">
-                            <div className="bimestral">
-                                <p className="category">PLANO TRIMESTRAL</p>
-                                <p className="value">R$ 720,00 <span>mensal</span></p>
-                            </div>
-                            <div className="trimestral">
-                                <p className="category">PLANO SEMESTRAL</p>
-                                <p className="value">R$ 600,00 <span>mensal</span></p>
-                            </div>
+                    }
+                />
+                <Card
+                    color={theme.colors.cardBackground}
+                    height="auto"
+                    title="VIA LÁCTEA"
+                    text="Ideal para quem deseja aprimorar seus estudos, contando com um acompanhamento leve e focado para fortalecer sua autonomia."
+                    component={
+                        <div className="diferential">
+                            <IoArrowForwardCircleSharp className="diferential_icon" />
+                            <p>1 aula por semana via meet</p>
                         </div>
-                        <div className="plan_info maratona">
-
-                            <h1 className="name">
-                                MARATONA
-                            </h1>
-                            <div className="stars">
-                                <CgArrowLongRightC className="icon" />
-                                <CgArrowLongRightC className="icon" />
-                                <CgArrowLongRightC className="icon" />
-                                <CgArrowLongRightC className="icon" />
-                                <CgArrowLongRightC className="icon" />
-                                <CgArrowLongRightC className="icon" />
-                                <CgArrowLongRightC className="icon" />
-                            </div>
-                            <p className="text">
-                                * 3 aulas por semana via meet
-                            </p>
-                            <p className="text">
-                                * 3 listas de exercício por semana
-                            </p>
-                            <p className="text">
-                                * Acesso ao whatsapp e instagram para tirar dúvidas frequentes.
-                            </p>
+                    }
+                    buttonText="Saiba mais"
+                    modalContent={
+                        <div>
+                            <br />
+                            <ul>
+                                <li>Preço: R$ {theme.prices.viaLactea.toFixed(2)}</li>
+                                <li>Acesso ao material de apoio</li>
+                                <li>Uma aula por semana de 50 minutos síncrona</li>
+                            </ul>
                         </div>
-                    </Content>
-                } />
+                    }
+                />
+                <Card
+                    color={theme.colors.cardBackground}
+                    height="auto"
+                    title="VIA LÁCTEA"
+                    text="Ideal para quem deseja aprimorar seus estudos, contando com um acompanhamento leve e focado para fortalecer sua autonomia."
+                    component={
+                        <div className="diferential">
+                            <IoArrowForwardCircleSharp className="diferential_icon" />
+                            <p>1 aula por semana via meet</p>
+                        </div>
+                    }
+                    buttonText="Saiba mais"
+                    modalContent={
+                        <div>
+                            <br />
+                            <ul>
+                                <li>Preço: R$ {theme.prices.viaLactea.toFixed(2)}</li>
+                                <li>Acesso ao material de apoio</li>
+                                <li>Uma aula por semana de 50 minutos síncrona</li>
+                            </ul>
+                        </div>
+                    }
+                />
             </Cards>
             <Button text="Agendar Aula" link="https://calendar.app.google/dSLjW2YSMAfPSLuN6" />
         </Main>
     )
 };
 
-const Main = styled.main<{ mode: boolean }>`
+const Main = styled.main`
     width: 100%;
     min-height: 100vh;
     max-height: auto;
     padding: 20px 0;
+    position: relative;
+    isolation: isolate;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-size: 'cover';
-    background-position: 'center';
-    background-color: ${(props) => props.mode ? theme.colors.week_black : theme.colors.white};
+    background-color: ${theme.colors.pageBackground};
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background-image: url("/images/fundo_site_um.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0.44;
+    }
 `;
 
 const Cards = styled.div`
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 100px;
+  width: 100%;
+  max-width: 900px; /* Limita a largura total para manter o formato 2x2 elegante em telas ultrawide */
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+
+  display: grid;
+  /* Cria 2 colunas no desktop e reduz automaticamente para 1 coluna quando a tela for menor que 300px */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px; /* Espaçamento uniforme entre as linhas e colunas */
+  justify-items: center; /* Centraliza os cards em cada célula da grade */
+  align-items: stretch; /* Garante que os cards fiquem com a mesma altura */
+
+  @media (min-width: 768px) {
+    /* Força exatamente 2 colunas a partir de tablets/desktops */
+    grid-template-columns: repeat(2, 1fr);
+  }
+ 
 
     .photo{
         width: 400px;
     }
-`;
 
-const Content = styled.div<{ mode: boolean }>`
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: relative;
-    border-radius: 10px;
-
-    h1{
-        font-size: 1.2rem;
-        font-weight: 500;
-    }
-
-    p{
-        font-size: 1rem;
-        font-weight: 600;
-        margin: 8px 0;
-    }
-
-    .icon{
-        color: black;
-    }
-
-    .trimestral{
-        margin-top: 20px;
-    }
-
-    .price_plan{
-        width: 150px;
-        height: auto;
-        padding: 10px;
-        background-color: black;
-        border-radius: 10px;
-        color: black;
-        position: absolute;
-        top: -50px;
-        right: -60px;
-
-        @media(max-width: 600px){
-            top:-80px;
-            right: 0px;
-        }
-    }
-
-    .value{
-        font-size: 1rem;
-        font-weight: 800;
-        align-items: first baseline;
-        color: ${theme.colors.yellow};
-    }
-
-    span{
-        font-size: 0.8rem;
-        margin-left: 8px;
-        color: 'gray'
-    }
-
-    .category{
-        font-size: 0.8rem;
-        color: white;
-        font-weight: 600;
-    }
-
-    .plan_info{
+    .diferential_box{
         width: 100%;
-        height: 100%;
-        padding: 15px;
-        box-sizing: border-box;
-        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
-    .trilha{
-        background-image: url('/images/fundo_trilha.png');
+    .diferential_icon{
+        width: 48px;
+        height: 34px;
+        flex: 0 0 48px;
+        font-size: 32px;
+        color: ${theme.colors.pageBackground};
     }
 
-    .jornada{
-        background-image: url('/images/fundo-jornada.png');
+    .diferential{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 14px;
+        margin: 4px 0;
     }
 
-    .maratona{
-        background-image: url('/images/fundo-maratona.png');
+    .diferential p{
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-align: left;
     }
-`
+`;

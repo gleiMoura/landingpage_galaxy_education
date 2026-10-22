@@ -24,15 +24,15 @@ const Main = styled.a`
         margin: 20px 0;
         border-radius: 10px;
         border: none;
-        background-color: ${theme.colors.yellow};
-        color: black;
-        font-family: 'Roboto';
-        font-size: 1.2rem;
+        background-color: ${theme.colors.buttonBackground};
+        color: ${theme.colors.buttonColor};
+        font-family: 'Raleway';
+        font-size: 1rem;
         font-weight: 600;
         text-decoration: none;
         cursor: pointer;
 
         &:hover{
-        color: ${theme.colors.week_black};
+        color: ${theme.colors.white};
    }
 `

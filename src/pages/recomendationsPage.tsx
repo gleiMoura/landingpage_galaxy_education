@@ -1,23 +1,19 @@
-import { FC, useContext } from "react";
+import { FC } from "react";
 import styled from "styled-components";
 import Card from "../components/Card";
 import Title from "../components/Title";
-import { ModeContext } from "../contexts/ModeContext";
 import { theme } from "../theme";
 import { FaStar } from "react-icons/fa";
 import { Button } from "../components/Button";
 
 
 export const Recomendation: FC = () => {
-    const modeContext = useContext(ModeContext);
-
-    const { mode } = modeContext;
 
     return (
-        <Main mode={mode} id="recomendations">
-            <Title title="O que falam das minhas aulas?" />
+        <Main id="recomendations">
+            <Title title="O que falam das minhas aulas?" color={theme.colors.white} />
             <Cards>
-                <Card color={mode ? "gray" : "white"} height="auto" component={
+                <Card color={theme.colors.cardBackground} height="auto" component={
                     <Content>
                         <h1 className="name">
                             Ana Beatriz Melo
@@ -34,7 +30,7 @@ export const Recomendation: FC = () => {
                         </div>
                     </Content>
                 } />
-                <Card color={mode ? "gray" : "white"} height="auto" component={
+                <Card color={theme.colors.cardBackground} height="auto" component={
                     <Content>
                         <h1 className="name">
                             Victor Suares
@@ -51,7 +47,7 @@ export const Recomendation: FC = () => {
                         </div>
                     </Content>
                 } />
-                <Card color={mode ? "gray" : "white"} height="auto" component={
+                <Card color={theme.colors.cardBackground} height="auto" component={
                     <Content>
                         <h1 className="name">
                             Gabriela Menezes
@@ -68,7 +64,7 @@ export const Recomendation: FC = () => {
                         </div>
                     </Content>
                 } />
-                <Card color={mode ? "gray" : "white"} height="auto" component={
+                <Card color={theme.colors.cardBackground} height="auto" component={
                     <Content>
                         <h1 className="name">
                             Cássia de Fátima Oliveira Vaz
@@ -91,7 +87,7 @@ export const Recomendation: FC = () => {
     )
 };
 
-const Main = styled.main<{ mode: boolean }>`
+const Main = styled.main`
     width: 100%;
     min-height: 100vh;
     max-height: auto;
@@ -100,9 +96,11 @@ const Main = styled.main<{ mode: boolean }>`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-size: 'cover';
-    background-position: 'center';
-    background-color: ${(props) => props.mode ? "none" : theme.colors.white};
+    background-image: url("/images/fundo_site_dois.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: ${theme.colors.pageBackground};
 `;
 
 const Cards = styled.div`

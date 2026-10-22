@@ -1,29 +1,14 @@
 import styled from "styled-components";
-import { IoSunnyOutline } from "react-icons/io5";
-import { IoMoon } from "react-icons/io5";
-import { FC, useState } from "react";
+import { FC } from "react";
 import { theme } from "../theme";
-import { FaBars } from "react-icons/fa";
 
 
-interface HeaderProps {
-    changeMode: () => void,
-    mode: boolean
-}
 
-const Header: FC<HeaderProps> = ({ changeMode, mode }) => {
-    const [toggleBar, setToggleBar] = useState(false);
-
-    const ChangeToggle = () => {
-        setToggleBar(!toggleBar)
-    };
-
+const Header: FC = () => {
     return (
-        <HeaderMain mode={mode}>
-            <div className="mode invisible" onClick={ChangeToggle}>
-                <FaBars />
-            </div>
-            <div className={toggleBar ? "mobile_links" : "links"}>
+        <HeaderMain>
+            <img className="logo-placeholder" aria-hidden="true" src="/images/galaxy_logo.png" alt="Logo" />
+            <div className="links">
                 <a onClick={() => {
                     document.getElementById("presentation")
                         ?.scrollIntoView({ behavior: "smooth" })
@@ -36,24 +21,15 @@ const Header: FC<HeaderProps> = ({ changeMode, mode }) => {
                     document.getElementById("plans")
                         ?.scrollIntoView({ behavior: "smooth" })
                 }}>planos</a>
-                <a onClick={() => {
-                    document.getElementById("information")
-                        ?.scrollIntoView({ behavior: "smooth" })
-                }}>informações úteis</a>
-            </div>
-            <div className="mode" onClick={() => {
-                changeMode()
-            }}>
-                {mode ? <IoMoon size={30} /> : <IoSunnyOutline size={30} />}
             </div>
         </HeaderMain>
     )
 };
 
-const HeaderMain = styled.header<{ mode: boolean }>`
+const HeaderMain = styled.header`
     width: 100%;
     height: 80px;
-    padding: 30px;
+    padding: 0 40px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.173);
     position: fixed;
     top: 0;
@@ -62,13 +38,26 @@ const HeaderMain = styled.header<{ mode: boolean }>`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: ${(props) => props.mode ? theme.colors.black : theme.colors.yellow};
+    background-color: ${theme.colors.pageBackground};
     z-index: 111;
 
+    .logo-placeholder {
+        width: 52px;
+        height: 52px;
+        flex: 0 0 52px;
+        border: 2px solid ${theme.colors.white};
+        border-radius: 50%;
+        box-sizing: border-box;
+    }
+
     .links {
-        width: 100%;
+        flex: 1;
         display: flex;
         justify-content: space-evenly;
+    }
+
+    .logo-placeholder + .mode {
+        margin-left: 16px;
     }
 
     .mobile_links{
@@ -88,10 +77,10 @@ const HeaderMain = styled.header<{ mode: boolean }>`
     }
 
     a{
-        color: ${(props) => props.mode ? theme.colors.white : theme.colors.black};
+        color: ${theme.colors.white};
         font-weight: 500;
-        font-size: 1rem;
-        font-family: 'Roboto';
+        font-size: 1.2rem;
+        font-family: 'Raleway';
         cursor: pointer;
     }
 
@@ -102,8 +91,8 @@ const HeaderMain = styled.header<{ mode: boolean }>`
     .mode{
         width: 80px;
         height: 50px;
-        background-color: ${(props) => props.mode ? "#21272F" : "white"};
-        color: ${(props) => props.mode ? "white" : "#21272F"};
+        background-color: white;
+        color: white;
         border-radius: 20px;
         display: flex;
         justify-content: center;
