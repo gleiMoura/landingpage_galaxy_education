@@ -1,27 +1,47 @@
 import styled from "styled-components";
-import { FC } from "react";
+import { FC, useState } from "react";
+import { IoClose, IoMenu } from "react-icons/io5";
 import { theme } from "../theme";
 
 
 
 const Header: FC = () => {
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
     return (
         <HeaderMain>
             <img className="logo-placeholder" aria-hidden="true" src="/images/galaxy_logo.png" alt="Logo" />
-            <div className="links">
-                <a onClick={() => {
+            <nav
+                id="main-navigation"
+                className={isMenuOpen ? "links is-open" : "links"}
+                aria-label="Navegação principal"
+            >
+                <a href="#presentation" onClick={() => {
+                    setIsMenuOpen(false);
                     document.getElementById("presentation")
                         ?.scrollIntoView({ behavior: "smooth" })
                 }}>Início</a>
-                <a onClick={() => {
+                <a href="#recomendations" onClick={() => {
+                    setIsMenuOpen(false);
                     document.getElementById("recomendations")
                         ?.scrollIntoView({ behavior: "smooth" })
                 }}>O que falam</a>
-                <a onClick={() => {
+                <a href="#plans" onClick={() => {
+                    setIsMenuOpen(false);
                     document.getElementById("plans")
                         ?.scrollIntoView({ behavior: "smooth" })
                 }}>planos</a>
-            </div>
+            </nav>
+            <button
+                className="menu-toggle"
+                type="button"
+                aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+                aria-expanded={isMenuOpen}
+                aria-controls="main-navigation"
+                onClick={() => setIsMenuOpen((isOpen) => !isOpen)}
+            >
+                {isMenuOpen ? <IoClose aria-hidden="true" /> : <IoMenu aria-hidden="true" />}
+            </button>
         </HeaderMain>
     )
 };
@@ -100,20 +120,47 @@ const HeaderMain = styled.header`
         cursor: pointer;
     }
 
-    .invisible{
+    .menu-toggle {
         display: none;
+        color: ${theme.colors.white};
+        border: 0;
+        padding: 8px;
+        background: transparent;
+        font-size: 1.8rem;
+        cursor: pointer;
     }
 
     @media(max-width: 600px) {
+        padding: 0 16px;
+
         a{
             font-size: 1rem;
         }
+
         .links{
             display: none;
+            position: absolute;
+            top: 80px;
+            right: 12px;
+            width: min(240px, calc(100vw - 24px));
+            padding: 20px;
+            box-sizing: border-box;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            border-radius: 0 0 12px 12px;
+            background-color: ${theme.colors.pageBackground};
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .invisible{
+        .links.is-open {
             display: flex;
+        }
+
+        .menu-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 `;

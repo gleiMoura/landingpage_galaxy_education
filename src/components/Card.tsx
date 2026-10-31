@@ -170,6 +170,8 @@ const ActionButton = styled.button`
 const ModalOverlay = styled.div`
   position: fixed;
   inset: 0;
+  padding: 16px;
+  box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.65);
   display: flex;
   justify-content: center;
@@ -182,9 +184,13 @@ const ModalContainer = styled.div`
   background-color: #ffffff;
   color: #1a1a1a;
   border-radius: 16px;
-  padding: 24px;
-  width: 90%;
+  padding: 24px 20px;
+  box-sizing: border-box;
+  width: 100%;
   max-width: 480px;
+  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
   position: relative;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
 

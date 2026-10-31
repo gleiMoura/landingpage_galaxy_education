@@ -1,20 +1,17 @@
-import { FC, useContext } from "react"
+import { FC } from "react"
 import { IoBookOutline, IoLaptopOutline, IoPeopleOutline } from "react-icons/io5";
-import { ModeContext } from "../contexts/ModeContext";
 import { theme } from "../theme";
 import styled from "styled-components";
-import Header from "../components/Header";
 import Card from "../components/Card";
 import { Button } from "../components/Button";
 
 export const Presentation: FC = () => {
     const phoneNumber = "5521984866633";
-    const message = "Olá! Gostaria de saber mais as aulas";
+    const message = "Olá! Gostaria de saber mais sobre as aulas";
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
     return (
         <Main id="presentation">
-            <Header />
             <div className="cards">
                 <Card
                     width="45%"
@@ -71,13 +68,15 @@ export const Presentation: FC = () => {
 
 const Main = styled.main`
     width: 100%;
-    height: 100vh;
-    padding-top: 80px;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 100px 0 24px;
     box-sizing: border-box;
     position: relative;
     isolation: isolate;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     background-color: ${theme.colors.pageBackground};
 
@@ -94,27 +93,30 @@ const Main = styled.main`
     }
 
     .cards {
-        width: 100%;
-        padding: 30px 5% 20px;
+        width: min(94%, 1280px);
+        margin: 0 auto;
+        padding: 24px 0 16px;
         display: flex;
-        justify-content: space-evenly;
-        align-items: center;
+        justify-content: space-between;
+        align-items: stretch;
         gap: 24px;
         box-sizing: border-box;
 
         > section {
+            width: calc(50% - 12px) !important;
+            max-width: none !important;
+            margin: 0 !important;
             border-radius: 20px;
         }
 
         @media(max-width: 600px) {
             flex-direction: column;
-            align-items: center;
-            padding-top: 20px;
+            align-items: stretch;
 
             > section {
-                width: calc(100% - 20px) !important;
+                width: 100% !important;
                 height: auto !important;
-                min-height: 204px;
+                min-height: 0 !important;
             }
         }
    }

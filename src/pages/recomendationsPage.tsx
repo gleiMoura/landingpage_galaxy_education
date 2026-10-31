@@ -11,7 +11,7 @@ export const Recomendation: FC = () => {
 
     return (
         <Main id="recomendations">
-            <Title title="O que falam das minhas aulas?" color={theme.colors.white} />
+            <Title title="O que falam das aulas dos nossos professores:" color={theme.colors.white} />
             <Cards>
                 <Card color={theme.colors.cardBackground} height="auto" component={
                     <Content>
@@ -90,11 +90,12 @@ export const Recomendation: FC = () => {
 const Main = styled.main`
     width: 100%;
     min-height: 100vh;
-    max-height: auto;
-    padding: 20px 0;
+    min-height: 100svh;
+    padding: 88px 0 24px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     background-image: url("/images/fundo_site_dois.png");
     background-size: cover;
@@ -104,13 +105,25 @@ const Main = styled.main`
 `;
 
 const Cards = styled.div`
-    width: 100%;
-    padding: 20px;
+    width: min(94%, 1280px);
+    margin: 0 auto;
+    padding: 20px 0;
     box-sizing: border-box;
-    flex-wrap: wrap;
+    gap: 20px;
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    flex-direction: column;
+    align-items: stretch;
+
+    > section {
+        width: 100% !important;
+        min-width: 0;
+        max-width: none !important;
+        margin: 0 !important;
+    }
+
+    > a {
+        align-self: center;
+    }
 `;
 
 const Content = styled.div`
@@ -128,6 +141,7 @@ const Content = styled.div`
 
     p{
         font-size: 1rem;
+        line-height: 1.4;
         margin: 4px 0;
         font-weight: 400;
     }
