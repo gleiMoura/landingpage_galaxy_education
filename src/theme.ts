@@ -18,14 +18,14 @@ export const theme = {
             shortDescription: "- Pacote de 4 aulas para usar em um mês"
         },
         galaxia: {
-            title: "GALÁXIA",
+            title: "ANDRÔMEDA",
             price: 600,
             description: "Ideal para quem deseja aprimorar seus estudos, contando com um acompanhamento mais frequente e focado para melhorar pontos fracos e fortalecer sua autonomia.",
             diferential: "Pacote de 8 aulas para usar em um mês, sendo 2 por semana de 50 minutos síncrona",
             shortDescription: "Pacote de 8 aulas para usar em um mês"
         },
         nebulosa: {
-            title: "NEBULOSA",
+            title: "QUASAR",
             price: 900,
             description: "Ideal para quem deseja aprimorar seus estudos, contando com um acompanhamento mais frequente e focado para melhorar pontos fracos e fortalecer sua autonomia.",
             diferential: "Pacote de 12 aulas para usar em um mês, sendo 3 por semana de 50 minutos síncrona",
