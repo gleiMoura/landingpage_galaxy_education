@@ -199,9 +199,8 @@ const ModalBody = styled.div`
 
     .modal-action {
         display: flex;
-        padding-left: 20px;
-        display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 8px;
     }
 

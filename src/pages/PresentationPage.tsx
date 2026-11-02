@@ -93,13 +93,13 @@ const Main = styled.main`
     }
 
     .cards {
-        width: min(94%, 1280px);
+        width: min(94%, 1000px);
         margin: 0 auto;
         padding: 24px 0 16px;
         display: flex;
         justify-content: space-between;
         align-items: stretch;
-        gap: 24px;
+        gap: 100px;
         box-sizing: border-box;
 
         > section {
@@ -109,7 +109,7 @@ const Main = styled.main`
             border-radius: 20px;
         }
 
-        @media(max-width: 600px) {
+        @media(max-width: 800px) {
             flex-direction: column;
             align-items: stretch;
 

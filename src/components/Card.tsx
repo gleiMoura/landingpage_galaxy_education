@@ -108,7 +108,7 @@ const CardMain = styled.section`
   border-radius: 16px;
   box-sizing: border-box;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   border: 2px solid transparent;
   gap: 16px;
@@ -190,9 +190,12 @@ const ModalContainer = styled.div`
   max-width: 480px;
   max-height: calc(100vh - 32px);
   max-height: calc(100dvh - 32px);
-  overflow-y: auto;
-  position: relative;
+
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   h2 {
     margin-top: 0;
